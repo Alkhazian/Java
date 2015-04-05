@@ -1,0 +1,41 @@
+package compCatalogue;
+
+import compType.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Desktop[] dt = new Desktop[10];
+        Notebook[] ntb = new Notebook[10];
+
+        for (int i = 0; i < dt.length; i++) {
+
+            boolean kb = (int) (Math.random() * 10) >= 5 ? true : false;
+            int cpu = (int) (Math.random() * 16);
+
+            Desktop input = new Desktop("Desktop-" + (i + 1), kb, cpu, "ATI");
+            dt[i] = input;
+        }
+
+        for (int i = 0; i < ntb.length; i++) {
+
+            boolean kb = (int) (Math.random() * 10) >= 5 ? true : false;
+            int cpu = (int) (Math.random() * 16);
+            Notebook input = new Notebook("Notebook-" + (i + 1), kb, cpu, "nVIDIA");
+            ntb[i] = input;
+        }
+
+        for (int i = 0; i < dt.length; i++) {
+            System.out.printf("%s with amount of CPUs - %s, has video-card as %s and %s keyboard.%n", dt[i].getName(), dt[i].getCpuAmount(), dt[i].getVideo(), dt[i].isKb() == true ? "has" : "doesn't have");
+        }
+
+        System.out.println("==============================================");
+
+        for (int i = 0; i < ntb.length; i++) {
+            System.out.printf("%s with amount of CPUs - %s, has video-card as %s and %s touch-pad.%n", ntb[i].getName(), ntb[i].getCpuAmount(), ntb[i].getVideo(), ntb[i].isTouchpad() == true ? "has" : "doesn't have");
+        }
+
+    }
+
+}
